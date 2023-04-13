@@ -3,7 +3,7 @@ import { $DatumData } from 'go.vote/$DatumPath/dataTypes/data'
 import { $DatumStore } from 'go.vote/$DatumPath/store'
 import { $data, keysToIndex, set$Data } from './config'
 import { concatKeys } from './helpers'
-import { $Key } from 'go.vote/$DatumPath/@key'
+import { $Key } from 'go.vote/$DatumPath/@keys'
 
 export type At$Datums = {
     [$data]: Array<$DatumData>
