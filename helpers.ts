@@ -1,6 +1,6 @@
 //go.vote/$DatumPath/@$data
-import { $Keys } from 'go.vote/$Datum/@$keys'
+import { $Key } from 'go.vote/$Datum/@$key'
 import { concat } from 'go.vote/@/helper'
 
-export const concatKeys = ({ $keyListComma }: $Keys): string =>
+export const concatKeys = ({ $keyListComma }: $Key): string =>
     concat($keyListComma)

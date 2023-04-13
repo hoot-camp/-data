@@ -3,7 +3,7 @@ import { $DatumData } from 'go.vote/$DatumPath/dataTypes/data'
 import { $DatumStore } from 'go.vote/$DatumPath/store'
 import { $data, keysToIndex, set$Data } from './config'
 import { concatKeys } from './helpers'
-import { $Keys } from 'go.vote/$DatumPath/@keys'
+import { $Key } from 'go.vote/$DatumPath/@key'
 
 export type At$Datums = {
     [$data]: Array<$DatumData>
@@ -20,7 +20,7 @@ export function $datumsSetter(set) {
                 produce<$DatumStore>((state) => {
                     state[$data] = incoming
                     state[keysToIndex] = incoming.reduce(
-                        (a, { $keyListComma }: $Keys, i) => {
+                        (a, { $keyListComma }: $Key, i) => {
                             a[concatKeys({ $keyListComma })] = i
                             return a
                         },

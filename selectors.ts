@@ -1,16 +1,16 @@
 import { $data, keysToIndex } from './config'
 import { concatKeys } from './helpers'
-import { $Keys } from 'go.vote/$Datum/@$keys'
-import { $DatumStore } from 'go.vote/$Datum/store'
+import { $Key } from 'go.vote/$DatumPath/@$key'
+import { $DatumStore } from 'go.vote/$DatumPath/store'
 
 export const select$Data = (state: $DatumStore) => state[$data]
 
 export const select$DatumIndex =
-    ({ $keyListComma }: $Keys): ((state: $DatumStore) => number) =>
+    ({ $keyListComma }: $Key): ((state: $DatumStore) => number) =>
     (state) =>
         state[keysToIndex][concatKeys({ $keyListComma })]
 
 export const select$Datum =
-    ({ $keyListComma }: $Keys) =>
+    ({ $keyListComma }: $Key) =>
     (state: $DatumStore) =>
         state[$data][select$DatumIndex({ $keyListComma })(state)]
