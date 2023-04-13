@@ -1,9 +1,9 @@
 import produce from 'immer'
-import { $DatumData } from 'go.vote/$DatumPath/dataTypes/data'
-import { $DatumStore } from 'go.vote/$DatumPath/store'
+import { $DatumData } from 'go.vote/.pattern/dataTypes/data'
+import { $DatumStore } from 'go.vote/.pattern/store'
 import { $data, keysToIndex, set$Data } from './config'
 import { concatKeys } from './helpers'
-import { $Key } from 'go.vote/$DatumPath/@keys'
+import { $Key } from 'go.vote/.pattern/@keys'
 
 export type At$Datums = {
     [$data]: Array<$DatumData>

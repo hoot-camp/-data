@@ -1,7 +1,7 @@
 import { $data, keysToIndex } from './config'
 import { concatKeys } from './helpers'
-import { $Key } from 'go.vote/$DatumPath/@$key'
-import { $DatumStore } from 'go.vote/$DatumPath/store'
+import { $Key } from 'go.vote/.pattern/@$key'
+import { $DatumStore } from 'go.vote/.pattern/store'
 
 export const select$Data = (state: $DatumStore) => state[$data]
 
