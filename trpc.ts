@@ -3,9 +3,7 @@ import { $data } from './config'
 
 const $dataSql = /* sql */ `
     SELECT
-        $$keyListComma,
-        officeTitle,
-        termYears
+        $selectListComma
     FROM $schema.$data;
 `
 export const $dataRoute = {
