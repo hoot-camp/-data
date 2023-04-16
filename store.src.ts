@@ -1,22 +1,22 @@
 import produce from 'immer'
-import { $DatumData } from 'go.vote/.kit-schema/data'
-import { $DatumStore } from 'go.vote/.kit-schema/store'
+import { $SubSchemaData } from 'go.vote/.kit-schema/data'
+import { $SubSchemaStore } from 'go.vote/.kit-schema/store'
 import { $data, compositeKeyToIndex, set$Data } from './config'
 import { Keys, composite } from 'go.vote/.kit-schema/@keys'
 
-export type At$Datums = {
-    [$data]: Array<$DatumData>
+export type At$SubSchemas = {
+    [$data]: Array<$SubSchemaData>
     [compositeKeyToIndex]: { [key: string]: number }
-    [set$Data]: (incoming: Array<$DatumData>) => void
+    [set$Data]: (incoming: Array<$SubSchemaData>) => void
 }
 
-export function $datumsSetter(set) {
+export function $subSchemasSetter(set) {
     return {
         [$data]: [],
         [compositeKeyToIndex]: {},
-        [set$Data]: (incoming: Array<$DatumData>) =>
+        [set$Data]: (incoming: Array<$SubSchemaData>) =>
             set(
-                produce<$DatumStore>((state) => {
+                produce<$SubSchemaStore>((state) => {
                     state[$data] = incoming
                     state[compositeKeyToIndex] = incoming.reduce(
                         (a, keys: Keys, i) => {
