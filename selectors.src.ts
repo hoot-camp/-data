@@ -1,13 +1,14 @@
-import { $data, compositeKeyToIndex } from './config'
-import { Keys, composite } from 'go.vote/.kit-schema/@keys'
+import { $data, dataKeyToIndex } from './config'
+import { Keyring, composite } from 'go.vote/.kit-schema/@keyring'
 import { $SubSchemaStore } from 'go.vote/.kit-schema/store'
 
 export const select$Data = (state: $SubSchemaStore) => state[$data]
 
 export const select$SubSchemaIndex =
-    (keys: Keys): ((state: $SubSchemaStore) => number) =>
+    (keyring: Keyring): ((state: $SubSchemaStore) => number) =>
     (state) =>
-        state[compositeKeyToIndex][composite(keys)]
+        state[dataKeyToIndex][composite(keyring)]
 
-export const select$SubSchema = (keys: Keys) => (state: $SubSchemaStore) =>
-    state[$data][select$SubSchemaIndex(keys)(state)]
+export const select$SubSchema =
+    (keyring: Keyring) => (state: $SubSchemaStore) =>
+        state[$data][select$SubSchemaIndex(keyring)(state)]
